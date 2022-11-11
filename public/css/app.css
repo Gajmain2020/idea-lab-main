@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pt-5 {
+  padding: 0;
+  margin: 0;
+  padding-top: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+  /* max-width: 700px; */
+  width: 100%;
+  /* background-color: #fff; */
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70rem;
+  margin: auto;
+  padding: 2rem;
+  margin-top: 100px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
+  margin: 1rem;
+}
+
+.img-login {
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+  height: 5rem;
+}
+
+.button {
+  /* display: inline-block; */
+  border-radius: 20px;
+  background-color: rgba(182, 182, 182, 0.797);
+  border: 0.4rem solid #56a5eb;
+  color: rgb(67, 67, 67);
+  text-decoration: none;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 300px;
+  height: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 3rem;
+}
+
+.button:hover {
+  background-color: #56a5eb;
+  color: black;
+  transition-duration: 500ms;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.footer {
+  color: black;
+  text-align: center;
+  /* position: absolute; */
+  box-sizing: border-box;
+  /* bottom: 2; */
+  /* left: 0; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.linked {
+  text-decoration: none;
+  color: rgb(75, 32, 32);
+}
+
+.linked:hover {
+  color: rgb(0, 0, 158);
+}
+
+.col-md-5,
+.mx-auto {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  width: 70rem;
+}
+
+.small-xl {
+  padding: 0;
+  margin: 0 auto;
+  color: red;
+  text-decoration: none;
+}
