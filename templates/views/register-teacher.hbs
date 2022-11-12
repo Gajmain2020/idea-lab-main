@@ -10,7 +10,7 @@
     <div class="container">
       <div class="title">Registration</div>
       <div class="content">
-        <form action="/register" method="POST">
+        <form action="/register-teacher" method="POST">
           <div class="user-details">
             <div class="input-box">
               <span class="details">Full Name</span>
@@ -22,11 +22,11 @@
               />
             </div>
             <div class="input-box">
-              <span class="details">Username</span>
+              <span class="details">Teacher ID</span>
               <input
                 type="text"
-                placeholder="Enter your username"
-                name="username"
+                placeholder="Enter your Teacher ID"
+                name="tid"
                 required
               />
             </div>
@@ -40,13 +40,16 @@
               />
             </div>
             <div class="input-box">
-              <span class="details">Phone Number</span>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Enter your number"
-                required
-              />
+              <span class="details">Department</span>
+              <select name="dept" id="dept">
+                <option value="CSE">CSE</option>
+                <option value="MECH">MECH</option>
+                <option value="EE">EE</option>
+                <option value="EEE">EEE</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="ETC">ETC</option>
+                <option value="IT">IT</option>
+              </select>
             </div>
             <div class="input-box">
               <span class="details">Password</span>
@@ -67,25 +70,8 @@
               />
             </div>
           </div>
-          <div class="gender-details">
-            <input type="radio" name="gender" id="dot-1" checked />
-            <input type="radio" name="gender" id="dot-2" />
-
-            <span class="gender-title">Gender</span>
-            <div class="category">
-              <label for="dot-1">
-                <span class="dot one"></span>
-                <span class="gender">Male</span>
-              </label>
-              <label for="dot-2">
-                <span class="dot two"></span>
-                <span class="gender">Female</span>
-              </label>
-
-            </div>
-          </div>
           <div class="button">
-            <input type="submit" value="Regist-er" />
+            <input type="submit" value="Register" />
           </div>
         </form>
       </div>

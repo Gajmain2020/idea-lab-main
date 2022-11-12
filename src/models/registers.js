@@ -6,24 +6,35 @@ const registerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-    required: true,
-    // unique: true,
-  },
   email: {
     type: String,
     required: true,
     // unique: true,
   },
-  phone: {
-    type: Number,
-    required: true,
-  },
-  gender: {
+  sem: {
     type: String,
+    values: [
+      "3A",
+      "3B",
+      "4A",
+      "4B",
+      "5A",
+      "5B",
+      "6A",
+      "6B",
+      "7A",
+      "7B",
+      "8A",
+      "8B",
+    ],
     required: true,
   },
+
+  rno: {
+    type: Number,
+    require: true,
+  },
+
   password: {
     type: String,
     required: true,
@@ -32,6 +43,11 @@ const registerSchema = new mongoose.Schema({
   cpassword: {
     type: String,
     required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+    values: ["Male", "female"],
   },
 });
 
@@ -46,6 +62,6 @@ registerSchema.pre("save", async function (next) {
 
 //collection
 
-const Register = new mongoose.model("Student", registerSchema);
+const Register = new mongoose.model("Registered-Student", registerSchema);
 
 module.exports = Register;

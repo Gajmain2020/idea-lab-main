@@ -6,6 +6,7 @@ require("./db/conn");
 const bcrypt = require("bcryptjs");
 
 const Register = require("./models/registers");
+const RegisterTeacher = require("./models/registers-teacher");
 const { checkPrime } = require("crypto");
 
 const port = process.env.PORT || 3000;
@@ -49,7 +50,7 @@ app.get("/login-teacher", (req, res) => {
 });
 
 //create new user in db
-app.post("/register", async (req, res) => {
+app.post("/register-student", async (req, res) => {
   try {
     const password = req.body.password;
     const cpassword = req.body.cpassword;
@@ -57,19 +58,46 @@ app.post("/register", async (req, res) => {
     if (password === cpassword) {
       const registerStudent = new Register({
         fullname: req.body.fullname,
-        username: req.body.username,
         email: req.body.email,
-        phone: req.body.phone,
+        sem: req.body.sem,
+        rno: req.body.rno,
+        password: req.body.password,
+        cpassword: req.body.cpassword,
         gender: req.body.gender,
-        password: password,
-        cpassword: cpassword,
       });
 
       //password hashing
       //   concept of middle ware
 
       const register = await registerStudent.save();
-      res.status(201).render("index");
+      res.status(201).render("login-or-reg-student");
+    } else {
+      res.send("Password not matching");
+    }
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+app.post("/register-teacher", async (req, res) => {
+  try {
+    const password = req.body.password;
+    const cpassword = req.body.cpassword;
+
+    if (password === cpassword) {
+      const registerTeacher = new RegisterTeacher({
+        fullname: req.body.fullname,
+        tid: req.body.tid,
+        email: req.body.email,
+        dept: req.body.dept,
+        password: req.body.password,
+        cpassword: req.body.cpassword,
+      });
+
+      //password hashing
+      //   concept of middle ware
+
+      const registerteacher = await registerTeacher.save();
+      res.status(201).render("login-or-reg-teacher");
     } else {
       res.send("Password not matching");
     }
@@ -79,17 +107,35 @@ app.post("/register", async (req, res) => {
 });
 
 // login chk
-app.post("/login", async (req, res) => {
+app.post("/login-student", async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
 
     const userEmail = await Register.findOne({ email: email });
-
-    const isMatch = await bcrypt.compare(userEmail.password, password);
-
+    const isMatch = await bcrypt.compare(password, userEmail.password);
+    // console.log(userEmail.password, password);
+    // console.log(isMatch);
     if (isMatch) {
-      res.status(201).render("index");
+      res.status(201).render("empty");
+    } else {
+      res.send("invalid login details");
+    }
+  } catch (error) {
+    res.status(400).send("invalid login details");
+  }
+});
+app.post("/login-teacher", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const userEmail = await RegisterTeacher.findOne({ email: email });
+    const isMatch = await bcrypt.compare(password, userEmail.password);
+    // console.log(userEmail.password, password);
+    // console.log(isMatch);
+    if (isMatch) {
+      res.status(201).render("empty");
     } else {
       res.send("invalid login details");
     }
