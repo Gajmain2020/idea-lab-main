@@ -48,6 +48,13 @@ app.get("/login-student", (req, res) => {
 app.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
+app.get("/questionForm", (req, res) => {
+  res.render("questionForm");
+});
+
+app.get("/sem-sec-form", (req, res) => {
+  res.render("sem-sec-form");
+});
 
 //create new user in db
 app.post("/register-student", async (req, res) => {
@@ -135,7 +142,7 @@ app.post("/login-teacher", async (req, res) => {
     // console.log(userEmail.password, password);
     // console.log(isMatch);
     if (isMatch) {
-      res.status(201).render("empty");
+      res.status(201).render("logged-in-teacher");
     } else {
       res.send("invalid login details");
     }

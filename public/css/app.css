@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.heading {
+  position: absolute;
+  top: 0;
+  font: 500;
+}
+
 .pt-5 {
   padding: 0;
   margin: 0;
