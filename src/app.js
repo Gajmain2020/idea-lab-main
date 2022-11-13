@@ -8,6 +8,8 @@ const bcrypt = require("bcryptjs");
 
 const Register = require("./models/registers");
 const RegisterTeacher = require("./models/registers-teacher");
+const Quizes = require("./models/quiz");
+const Questions = require("./models/questions");
 const { checkPrime } = require("crypto");
 
 const port = process.env.PORT || 3000;
@@ -49,11 +51,12 @@ app.get("/login-student", (req, res) => {
 app.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
-app.get("/questionForm", (req, res) => {
+
+app.get("/create-question", (req, res) => {
   res.render("questionForm");
 });
 
-app.get("/sem-sec-form", (req, res) => {
+app.get("/create-quiz", (req, res) => {
   res.render("sem-sec-form");
 });
 
@@ -160,6 +163,45 @@ app.post("/login-teacher", async (req, res) => {
   }
 });
 
+app.post("/create-quiz", async (req, res) => {
+  const { semester, section, name } = req.body;
+  try {
+    const quiz = new Quizes({
+      semester,
+      name,
+      section,
+      questions: [],
+      created_by: "teacher 1", // get this from cookie
+    });
+    await quiz.save();
+    res.status(201).render("questionForm", { quizId: quiz._id });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("something went wrong");
+  }
+});
+
+app.get("/all-quizes", async (req, res) => {
+  const quiz = await Quizes.find();
+  res.status(200).send(quiz);
+});
+
+app.post("/add-question", async (req, res) => {
+  const { question, option1, option2, option3, option4, correctOption } =
+    req.body;
+  try {
+    const questions = new Questions({
+      question,
+      options: [option1, option2, option3, option4],
+      correct_option: Number(correctOption),
+    });
+    await questions.save();
+    res.status(201).render("questionForm");
+  } catch (error) {
+    console.log("something went wrong", error);
+  }
+});
+
 app.listen(port, () => {
-  console.log(`server is running at port :: ${port}`);
+  console.log(`server started :: http://localhost:${port}`);
 });

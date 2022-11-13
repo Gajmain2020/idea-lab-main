@@ -10,14 +10,14 @@
     <div class="container">
       <div class="title">Questions</div>
       <div class="content">
-        <form>                          <!--** ABHI FORM KA ACTIONA AUR METHOD DEFINED NAI HAI **-->
+        <form action="/add-question" method="post">
           <div class="user-details">
             <div class="input-box">
               <span class="details">Question</span>
               <input
                 type="text"
                 placeholder="Enter Question"
-                name="fullname"
+                name="question"
                 required
               />
             </div>
@@ -66,13 +66,12 @@
                 <option value="4">4</option>
               </select>
             </div>
-            
+          </div>
           <div class="button">
-            <input type="submit" value="Register" />
+            <input type="submit" value="Add" />
           </div>
         </form>
       </div>
     </div>
-
   </body>
 </html>

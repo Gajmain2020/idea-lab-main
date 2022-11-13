@@ -10,7 +10,8 @@
     <div class="container">
       <div class="title">Semester And Section Form</div>
       <div class="content">
-        <form >             <!--** ABHI FORM KA ACTIONA AUR METHOD DEFINED NAI HAI **-->
+        <form action="/create-quiz" method="post">
+          <!--** ABHI FORM KA ACTIONA AUR METHOD DEFINED NAI HAI **-->
           <div class="user-details">
             <div class="input-box">
               <span class="details">Semester</span>
@@ -36,13 +37,19 @@
             </div>
             <div class="input-box">
               <span class="details">Test Name</span>
-              <input type="text" name="testName" id="testName" placeholder="Input Test Name">
-              
-            
+              <input
+                type="text"
+                name="name"
+                id="testName"
+                placeholder="Input Test Name"
+              />
+            </div>
+          </div>
+
           <div class="button">
             <input type="submit" value="Continue" />
 
-            <a href="/questionForm">Click here to go to question form</a>
+            {{! <a href="/questionForm">Click here to go to question form</a> }}
           </div>
         </form>
       </div>
