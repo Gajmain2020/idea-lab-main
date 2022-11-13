@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const hbs = require("hbs");
+const jwt = require("jsonwebtoken");
 require("./db/conn");
 const bcrypt = require("bcryptjs");
 
@@ -56,7 +57,7 @@ app.get("/sem-sec-form", (req, res) => {
   res.render("sem-sec-form");
 });
 
-//create new user in db
+//create new student in db
 app.post("/register-student", async (req, res) => {
   try {
     const password = req.body.password;
@@ -73,9 +74,11 @@ app.post("/register-student", async (req, res) => {
         gender: req.body.gender,
       });
 
-      //password hashing
       //   concept of middle ware
 
+      const token = await registerStudent.generateAuthToken();
+
+      //password hashing
       const register = await registerStudent.save();
       res.status(201).render("login-or-reg-student");
     } else {
@@ -85,6 +88,8 @@ app.post("/register-student", async (req, res) => {
     res.status(400).send(error);
   }
 });
+
+//create new teacher in db
 app.post("/register-teacher", async (req, res) => {
   try {
     const password = req.body.password;
@@ -100,9 +105,11 @@ app.post("/register-teacher", async (req, res) => {
         cpassword: req.body.cpassword,
       });
 
-      //password hashing
       //   concept of middle ware
 
+      const token2 = await registerTeacher.generateAuthToken2();
+
+      //password hashing
       const registerteacher = await registerTeacher.save();
       res.status(201).render("login-or-reg-teacher");
     } else {
@@ -121,6 +128,7 @@ app.post("/login-student", async (req, res) => {
 
     const userEmail = await Register.findOne({ email: email });
     const isMatch = await bcrypt.compare(password, userEmail.password);
+    const token = await userEmail.generateAuthToken();
     // console.log(userEmail.password, password);
     // console.log(isMatch);
     if (isMatch) {
@@ -139,6 +147,7 @@ app.post("/login-teacher", async (req, res) => {
 
     const userEmail = await RegisterTeacher.findOne({ email: email });
     const isMatch = await bcrypt.compare(password, userEmail.password);
+    const token2 = await userEmail.generateAuthToken2();
     // console.log(userEmail.password, password);
     // console.log(isMatch);
     if (isMatch) {

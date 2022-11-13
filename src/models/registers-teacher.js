@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const registerSchemaTeacher = new mongoose.Schema({
   fullname: {
@@ -31,13 +32,38 @@ const registerSchemaTeacher = new mongoose.Schema({
     type: String,
     required: true,
   },
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
+// generating tokens
+registerSchemaTeacher.methods.generateAuthToken2 = async function () {
+  try {
+    const token2 = jwt.sign(
+      { _id: this._id.toString() },
+      "abcdefghijklmnopqrstuvwxyzgajendra"
+    );
+    this.tokens = this.tokens.concat({ token: token2 });
+    await this.save();
+    return token2;
+  } catch (error) {
+    res.send("The Error Part" + error);
+    console.log("The Error Part" + error);
+  }
+};
+
+//hashing password
 registerSchemaTeacher.pre("save", async function (next) {
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 10);
 
-    this.cpassword = undefined;
+    this.cpassword = await bcrypt.hash(this.password, 10);
   }
   next();
 });
