@@ -1,0 +1,31 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Questions For Test</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Test</div>
+      <div class="content">
+        <form action="/submit-test" method="post">
+          {{#each questions}}
+            <div class="question-container">
+              <div class="question">
+                <b>Q{{@index}}: </b>{{question}}
+              </div>
+              {{#each options}}
+                <input name="{{../_id}}" id={{@index}} value={{@index}} type="radio" />
+                <label>{{this}}</label>
+              {{/each}}
+            </div>
+          {{/each}}
+          <div class="button">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -61,6 +61,10 @@ app.get("/login-teacher", (req, res) => {
 app.get("/logged-in-teacher", authTeacher, (req, res) => {
   res.render("logged-in-teacher");
 });
+app.get("/give-test", authStudent, async (req, res) => {
+  const questions = await Questions.find();
+  res.status(200).render("give-test", { questions });
+});
 
 app.get("/logout-student", authStudent, async (req, res) => {
   try {
@@ -265,6 +269,23 @@ app.post("/add-question", async (req, res) => {
   } catch (error) {
     console.log("something went wrong", error);
   }
+});
+
+app.post("/submit-test", authStudent, async (req, res) => {
+  const ans = req.body;
+  // const user = await Register.findOne({ "tokens.token": req.cookies.jwt });
+  // console.log(user);
+  const score = Object.keys(ans).reduce(async (result, key) => {
+    const question = await Questions.findOne({ _id: key });
+    if (question.correct_option === Number(ans[key])) {
+      result += 1;
+    }
+  }, 0);
+  await Register.updateOne(
+    { "tokens.token": req.cookies.jwt },
+    { $set: { score } }
+  );
+  res.redirect("/login-student");
 });
 
 app.listen(port, () => {
