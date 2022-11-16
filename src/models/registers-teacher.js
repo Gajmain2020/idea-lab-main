@@ -47,7 +47,7 @@ registerSchemaTeacher.methods.generateAuthToken2 = async function () {
   try {
     const token2 = jwt.sign(
       { _id: this._id.toString() },
-      "abcdefghijklmnopqrstuvwxyzgajendra"
+      process.env.SECRET_KEY
     );
     this.tokens = this.tokens.concat({ token: token2 });
     await this.save();

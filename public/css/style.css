@@ -150,3 +150,23 @@ form .button input:hover {
     flex-direction: column;
   }
 }
+.bk-button,
+a {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 2.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -5,12 +6,17 @@ const hbs = require("hbs");
 const jwt = require("jsonwebtoken");
 require("./db/conn");
 const bcrypt = require("bcryptjs");
+const cookieParser = require("cookie-parser");
+const authStudent = require("./middleware/authStudent");
+const authTeacher = require("./middleware/authTeacher");
 
 const Register = require("./models/registers");
 const RegisterTeacher = require("./models/registers-teacher");
 const Quizes = require("./models/quiz");
 const Questions = require("./models/questions");
 const { checkPrime } = require("crypto");
+
+const oneDay = 24 * 3600000; //1 weeks
 
 const port = process.env.PORT || 3000;
 
@@ -19,6 +25,7 @@ const template_path = path.join(__dirname, "../templates/views");
 const partials_path = path.join(__dirname, "../templates/partials");
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(static_path));
@@ -51,14 +58,50 @@ app.get("/login-student", (req, res) => {
 app.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
+app.get("/logged-in-teacher", authTeacher, (req, res) => {
+  res.render("logged-in-teacher");
+});
 
-app.get("/create-question", (req, res) => {
+app.get("/logout-student", authStudent, async (req, res) => {
+  try {
+    console.log(req.user);
+    req.user.tokens = [];
+
+    res.clearCookie("jwt");
+    console.log(`logout succesfully`);
+
+    await req.user.save();
+    res.render("login-or-reg-student");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.get("/logout-teacher", authTeacher, async (req, res) => {
+  try {
+    req.user.tokens = [];
+
+    res.clearCookie("jwt");
+    console.log(`logout succesfully`);
+
+    await req.user.save();
+    res.render("login-or-reg-teacher");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.get("/logged-in-student", authStudent, (req, res) => {
+  res.render("logged-in-teacher");
+});
+
+app.get("/create-question", authTeacher, (req, res) => {
   res.render("questionForm");
 });
 
-app.get("/create-quiz", (req, res) => {
-  res.render("sem-sec-form");
-});
+// app.get("/create-quiz", (req, res) => {
+//   res.render("sem-sec-form");
+// });
 
 //create new student in db
 app.post("/register-student", async (req, res) => {
@@ -80,6 +123,12 @@ app.post("/register-student", async (req, res) => {
       //   concept of middle ware
 
       const token = await registerStudent.generateAuthToken();
+
+      res.cookie("jwt", token, {
+        // var hour = 3600000;
+
+        expires: new Date(Date.now() + oneDay),
+      });
 
       //password hashing
       const register = await registerStudent.save();
@@ -112,6 +161,10 @@ app.post("/register-teacher", async (req, res) => {
 
       const token2 = await registerTeacher.generateAuthToken2();
 
+      res.cookie("jwt", token2, {
+        expires: new Date(Date.now() + oneDay),
+      });
+
       //password hashing
       const registerteacher = await registerTeacher.save();
       res.status(201).render("login-or-reg-teacher");
@@ -132,10 +185,16 @@ app.post("/login-student", async (req, res) => {
     const userEmail = await Register.findOne({ email: email });
     const isMatch = await bcrypt.compare(password, userEmail.password);
     const token = await userEmail.generateAuthToken();
+
+    res.cookie("jwt", token, {
+      expires: new Date(Date.now() + oneDay),
+      // secure: true,
+    });
+
     // console.log(userEmail.password, password);
     // console.log(isMatch);
     if (isMatch) {
-      res.status(201).render("empty");
+      res.status(201).render("logged-in-student");
     } else {
       res.send("invalid login details");
     }
@@ -151,8 +210,14 @@ app.post("/login-teacher", async (req, res) => {
     const userEmail = await RegisterTeacher.findOne({ email: email });
     const isMatch = await bcrypt.compare(password, userEmail.password);
     const token2 = await userEmail.generateAuthToken2();
-    // console.log(userEmail.password, password);
-    // console.log(isMatch);
+
+    res.cookie("jwt", token2, {
+      expires: new Date(Date.now() + oneDay),
+      // secure: true,
+    });
+
+    console.log(`this is cookie ${req.cookies.jwt}`);
+
     if (isMatch) {
       res.status(201).render("logged-in-teacher");
     } else {
