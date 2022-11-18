@@ -16,7 +16,7 @@ const Quizes = require("./models/quiz");
 const Questions = require("./models/questions");
 const { checkPrime } = require("crypto");
 
-const oneDay = 24 * 3600000; //1 weeks
+const oneHour = 3600000; //1 weeks
 
 const port = process.env.PORT || 3000;
 
@@ -34,6 +34,8 @@ app.set("views", template_path);
 hbs.registerPartials(partials_path);
 
 app.get("/", (req, res) => {
+  // redirect to specific page based on loggedin user
+  // console.log(req.cookies);
   res.render("homepage");
 });
 
@@ -66,6 +68,18 @@ app.get("/give-test", authStudent, async (req, res) => {
   res.status(200).render("give-test", { questions });
 });
 
+app.get("/view-result-student", authStudent, async (req, res) => {
+  // const student = await Register.find();
+  const user = await Register.findOne({ "tokens.token": req.cookies.jwt });
+  // console.log(user);
+  res.render("view-result-student", { user });
+});
+
+app.get("/view-result-teacher", authTeacher, async (req, res) => {
+  const student = await Register.find();
+  res.status(200).render("view-result-teacher", { student });
+});
+
 app.get("/logout-student", authStudent, async (req, res) => {
   try {
     console.log(req.user);
@@ -75,10 +89,14 @@ app.get("/logout-student", authStudent, async (req, res) => {
     console.log(`logout succesfully`);
 
     await req.user.save();
-    res.render("login-or-reg-student");
+    res.redirect("login-or-reg-student");
   } catch (error) {
     res.status(500).send(error);
   }
+});
+
+app.get("/logged-in-student", authStudent, (req, res) => {
+  res.render("logged-in-student");
 });
 
 app.get("/logout-teacher", authTeacher, async (req, res) => {
@@ -89,23 +107,24 @@ app.get("/logout-teacher", authTeacher, async (req, res) => {
     console.log(`logout succesfully`);
 
     await req.user.save();
-    res.render("login-or-reg-teacher");
+    res.redirect("login-or-reg-teacher");
   } catch (error) {
     res.status(500).send(error);
   }
 });
 
-app.get("/logged-in-student", authStudent, (req, res) => {
-  res.render("logged-in-teacher");
-});
+// app.get("/add-question/:id", (req, res) => {
+//   console.log(req.params.id);
+//   res.status(200).render("questionForm");
+// });
 
 app.get("/create-question", authTeacher, (req, res) => {
   res.render("questionForm");
 });
 
-// app.get("/create-quiz", (req, res) => {
-//   res.render("sem-sec-form");
-// });
+app.get("/create-quiz", (req, res) => {
+  res.render("sem-sec-form");
+});
 
 //create new student in db
 app.post("/register-student", async (req, res) => {
@@ -131,7 +150,7 @@ app.post("/register-student", async (req, res) => {
       res.cookie("jwt", token, {
         // var hour = 3600000;
 
-        expires: new Date(Date.now() + oneDay),
+        expires: new Date(Date.now() + oneHour),
       });
 
       //password hashing
@@ -166,7 +185,7 @@ app.post("/register-teacher", async (req, res) => {
       const token2 = await registerTeacher.generateAuthToken2();
 
       res.cookie("jwt", token2, {
-        expires: new Date(Date.now() + oneDay),
+        expires: new Date(Date.now() + oneHour),
       });
 
       //password hashing
@@ -191,19 +210,19 @@ app.post("/login-student", async (req, res) => {
     const token = await userEmail.generateAuthToken();
 
     res.cookie("jwt", token, {
-      expires: new Date(Date.now() + oneDay),
+      expires: new Date(Date.now() + oneHour),
       // secure: true,
     });
 
     // console.log(userEmail.password, password);
     // console.log(isMatch);
     if (isMatch) {
-      res.status(201).render("logged-in-student");
+      res.redirect("logged-in-student");
     } else {
-      res.send("invalid login details");
+      res.send("login-student");
     }
   } catch (error) {
-    res.status(400).send("invalid login details");
+    res.redirect("login-student");
   }
 });
 app.post("/login-teacher", async (req, res) => {
@@ -216,19 +235,17 @@ app.post("/login-teacher", async (req, res) => {
     const token2 = await userEmail.generateAuthToken2();
 
     res.cookie("jwt", token2, {
-      expires: new Date(Date.now() + oneDay),
+      expires: new Date(Date.now() + oneHour),
       // secure: true,
     });
 
-    console.log(`this is cookie ${req.cookies.jwt}`);
-
     if (isMatch) {
-      res.status(201).render("logged-in-teacher");
+      res.redirect("logged-in-teacher");
     } else {
-      res.send("invalid login details");
+      res.redirect("login-teacher");
     }
   } catch (error) {
-    res.status(400).send("invalid login details");
+    res.redirect("login-teacher");
   }
 });
 
@@ -243,7 +260,8 @@ app.post("/create-quiz", async (req, res) => {
       created_by: "teacher 1", // get this from cookie
     });
     await quiz.save();
-    res.status(201).render("questionForm", { quizId: quiz._id });
+    // res.status(201).render("questionForm", { quizId: quiz._id });
+    res.redirect(`/add-question/${quiz._id}`);
   } catch (error) {
     console.log(error);
     res.status(500).send("something went wrong");
@@ -258,11 +276,12 @@ app.get("/all-quizes", async (req, res) => {
 app.post("/add-question", async (req, res) => {
   const { question, option1, option2, option3, option4, correctOption } =
     req.body;
+  console.log({ question, id: req.params.id });
   try {
     const questions = new Questions({
       question,
       options: [option1, option2, option3, option4],
-      correct_option: Number(correctOption),
+      correct_option: Number(correctOption - 1),
     });
     await questions.save();
     res.status(201).render("questionForm");
@@ -275,17 +294,22 @@ app.post("/submit-test", authStudent, async (req, res) => {
   const ans = req.body;
   // const user = await Register.findOne({ "tokens.token": req.cookies.jwt });
   // console.log(user);
-  const score = Object.keys(ans).reduce(async (result, key) => {
+  const answers = Object.keys(ans);
+  let score = 0;
+  for (let i = 0; i < answers.length; i++) {
+    const key = answers[i];
     const question = await Questions.findOne({ _id: key });
     if (question.correct_option === Number(ans[key])) {
-      result += 1;
+      score += 1;
     }
-  }, 0);
+  }
+
+  console.log(`${score}`);
   await Register.updateOne(
     { "tokens.token": req.cookies.jwt },
     { $set: { score } }
   );
-  res.redirect("/login-student");
+  res.redirect("/logged-in-student");
 });
 
 app.listen(port, () => {

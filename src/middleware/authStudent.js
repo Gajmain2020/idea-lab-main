@@ -12,7 +12,7 @@ const authStudent = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    res.status(401).send("Please Login To View This Page");
+    res.redirect("login-student");
   }
 };
 

@@ -13,7 +13,7 @@ const authTeacher = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(401).send("PLEASE LOGIN TO VIEW THIS PAGE");
+    res.redirect("login-teacher");
   }
 };
 

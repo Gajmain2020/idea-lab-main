@@ -58,6 +58,10 @@ const registerSchema = new mongoose.Schema({
       },
     },
   ],
+  score: {
+    type: Number,
+    // required: true,
+  },
 });
 
 // generating tokens

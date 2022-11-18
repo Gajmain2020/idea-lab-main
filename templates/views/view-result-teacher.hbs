@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Of All Student</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <center>
+      <h2>Reports Of All Students</h2>
+    </center>
+    <div class="container">
+
+      <table class="flex-column flex-center">
+        <caption>REPORT</caption>
+        <tr>
+          <th>Student Name</th>
+          <th>Roll Number</th>
+          <th>Sem & Sec</th>
+          <th>Marks</th>
+        </tr>
+        {{#each student}}
+          <div class="question-container">
+            <div class="question">
+              <tr>
+                <td>{{fullname}}</td>
+                <td>{{rno}}</td>
+                <td>{{sem}}</td>
+                <td>{{score}}</td>
+              </tr>
+            </div>
+          </div>
+        {{/each}}
+
+      </table>
+
+      <a href="/logged-in-teacher" class="bk-button">Go Back</a>
+    </div>
+  </body>
+</html>
