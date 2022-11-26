@@ -8,6 +8,7 @@
   position: absolute;
   top: 0;
   font: 500;
+  font-family: monospace;
 }
 
 .pt-5 {
@@ -19,10 +20,11 @@
 body {
   height: 100%;
   width: 100%;
+  max-height: 1000px;
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
@@ -37,6 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   max-width: 70rem;
   margin: auto;
   padding: 2rem;
@@ -70,10 +73,10 @@ img {
 
 .button {
   /* display: inline-block; */
-  border-radius: 20px;
-  background-color: rgba(182, 182, 182, 0.797);
-  border: 0.4rem solid #56a5eb;
-  color: rgb(67, 67, 67);
+  border-radius: 25px;
+  background-color: rgba(176, 176, 176, 0.797);
+  border: 0.4rem solid #2893f1;
+  color: rgb(48, 48, 48);
   text-decoration: none;
   text-align: center;
   font-size: 28px;
@@ -82,14 +85,14 @@ img {
   height: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 3rem;
+  margin: 3rem 5rem;
 }
 
 .button:hover {
-  background-color: #56a5eb;
+  background-color: #279aff;
   color: black;
   transition-duration: 500ms;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
 .button span {
@@ -127,6 +130,8 @@ img {
   width: 100%;
   margin: 0;
   padding: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .linked {
@@ -136,6 +141,8 @@ img {
 
 .linked:hover {
   color: rgb(0, 0, 158);
+  font-weight: bold;
+  transition: 0.5s;
 }
 
 .col-md-5,
@@ -173,4 +180,40 @@ td {
 caption {
   font-size: 50px;
   font-style: italic;
+}
+
+.homepage-button {
+  /* display: inline-block; */
+  border-radius: 15px;
+  background-color: rgba(176, 176, 176, 0.797);
+  border: 0.4rem solid #2893f1;
+  color: rgb(48, 48, 48);
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px;
+  width: 200px;
+  height: 40px;
+}
+
+.homepage-button:hover {
+  background-color: #279aff;
+  color: black;
+  transition-duration: 500ms;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+#homepage-icon {
+  margin: 0 auto;
+  padding: 0;
+  height: 20px;
+  width: 20px;
 }
