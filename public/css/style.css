@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: red;
+  background: blue;
 }
 .container {
   max-width: 700px;
