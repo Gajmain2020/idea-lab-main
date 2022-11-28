@@ -23,7 +23,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background-image: url(back7.jpg);
+  background-size:cover ;
 }
 
 .container {
@@ -31,8 +32,9 @@ body {
   width: 100%;
   /* background-color: #fff; */
   padding: 25px 30px;
-  border-radius: 5px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: rgb(183, 205, 205);
+  border-radius: 3.5%;
+  box-shadow: 0 10px 20px rgba(226, 195, 213, 0.15);
   min-height: 80vh;
   display: flex;
   justify-content: center;
@@ -40,7 +42,7 @@ body {
   max-width: 70rem;
   margin: auto;
   padding: 2rem;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .flex-column {
@@ -71,9 +73,8 @@ img {
 .button {
   /* display: inline-block; */
   border-radius: 20px;
-  background-color: rgba(182, 182, 182, 0.797);
-  border: 0.4rem solid #56a5eb;
-  color: rgb(67, 67, 67);
+  background: linear-gradient(60deg, #2193b0, #439be2);
+  color: rgb(9, 9, 9);
   text-decoration: none;
   text-align: center;
   font-size: 28px;
@@ -86,7 +87,7 @@ img {
 }
 
 .button:hover {
-  background-color: #56a5eb;
+  background-color: #70b7f5;
   color: black;
   transition-duration: 500ms;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -131,11 +132,14 @@ img {
 
 .linked {
   text-decoration: none;
-  color: rgb(75, 32, 32);
+  color: rgb(41, 40, 40);
 }
 
 .linked:hover {
-  color: rgb(0, 0, 158);
+  color: rgb(83, 83, 240);
+  font-size: 50px;
+  font-style: bold;
+  left: 70%;
 }
 
 .col-md-5,
@@ -160,7 +164,7 @@ table {
 
 th {
   font-size: larger;
-  color: rgba(74, 6, 6, 0.596);
+  color: rgba(13, 13, 13, 0.596);
   border-style: double;
   padding: 3px 30px;
   text-align: center;
@@ -172,5 +176,5 @@ td {
 }
 caption {
   font-size: 50px;
-  font-style: italic;
+  font-style: bold;
 }
