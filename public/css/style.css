@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "display", sans-serif;
 }
 body {
   height: 100%;
@@ -11,9 +11,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   padding: 20px;
   background: linear-gradient(120deg, #a7cde6, #f299dd);
 
+=======
+  padding: 10px;
+  background: blue;
+>>>>>>> 0084735d20907c829fb80dc20d9ab7b0dbd327e1
 }
 .container {
   max-width: 700px;
