@@ -8,6 +8,7 @@
   position: absolute;
   top: 0;
   font: 500;
+  font-family: monospace;
 }
 
 .pt-5 {
@@ -19,12 +20,13 @@
 body {
   height: 100%;
   width: 100%;
+  max-height: 1000px;
   /* display: flex; */
   justify-content: center;
   align-items: center;
   padding: 10px;
   background-image: url(back7.jpg);
-  background-size:cover ;
+  background-size: cover;
 }
 
 .container {
@@ -39,7 +41,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 90rem;
+
+
+  text-align: center;
+  max-width: 70rem;
+
   margin: auto;
   padding: 2rem;
   margin-top: 60px;
@@ -83,14 +89,14 @@ img {
   height: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 3rem;
+  margin: 3rem 5rem;
 }
 
 .button:hover {
   background-color: #70b7f5;
   color: black;
   transition-duration: 500ms;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
 .button span {
@@ -128,6 +134,8 @@ img {
   width: 100%;
   margin: 0;
   padding: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .linked {
@@ -177,4 +185,40 @@ td {
 caption {
   font-size: 50px;
   font-style: bold;
+}
+
+.homepage-button {
+  /* display: inline-block; */
+  border-radius: 15px;
+  background-color: rgba(176, 176, 176, 0.797);
+  border: 0.4rem solid #2893f1;
+  color: rgb(48, 48, 48);
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px;
+  width: 200px;
+  height: 40px;
+}
+
+.homepage-button:hover {
+  background-color: #279aff;
+  color: black;
+  transition-duration: 500ms;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+#homepage-icon {
+  margin: 0 auto;
+  padding: 0;
+  height: 20px;
+  width: 20px;
 }
