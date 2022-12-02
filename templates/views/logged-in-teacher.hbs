@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome Teacher !!</title>
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+      rel="stylesheet"
+    />
 
   </head>
   <body>
+    <div class="home">
+      <a href="/" class="homepage-button">
+        HOME PAGE</a>
+    </div>
+    <div class="logout">
+      <a href="/logout-student" class="logout-button">
+        LOGOUT
+      </a>
+    </div>
     <div class="container">
       <div class="heading"><h2><u>Welcome To Online Assesment Module</u></h2></div>
-      {{! <a href="/create-quiz" class="button flex-center flex-column"><img
-          src="css/create-quiz.png"
-          alt=""
-        />
-        <span>Create Quiz</span>
-      </a> }}
-      <a href="/create-question" class="button flex-center"><img
+
+      <a href="/create-question" class="button flex-center flex-column"><img
           src="rp.png"
           alt=""
         />
-        Create Question
+        <span>Create Question</span>
       </a>
-      
-      <a href="/view-result-teacher" class="button flex-center "><img
+
+      <a href="/view-result-teacher" class="button flex-center flex-column"><img
           src="report.png"
         />
         <span>View Report</span></a>
-      <a href="/logout-teacher" class="button flex-center"><img
-          src="css/logout.png"
-          alt=""
-        />Logout
-      </a>
+
     </div>
     <div class="footer">
       <footer>

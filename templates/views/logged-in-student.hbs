@@ -5,33 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome Student !!</title>
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+      rel="stylesheet"
+    />
 
   </head>
   <body>
+    <div class="home">
+      <a href="/" class="homepage-button">
+        HOME PAGE</a>
+    </div>
+    <div class="logout">
+      <a href="/logout-student" class="logout-button">
+        LOGOUT
+      </a>
+    </div>
     <div class="container">
       <div class="heading"><h2>Welcome To Online Assesment Module</h2></div>
-      {{! <a href="/create-quiz" class="button flex-center flex-column"><img
-          src="css/create-quiz.png"
-          alt=""
-        />
-        <span>Create Quiz</span>
-      </a> }}
       <a href="/give-test" class="button flex-center flex-column"><img
           src="css/create-quiz.png"
           alt=""
         />
-        Give Test
-      </a>
-      <a href="/logout-student" class="button flex-center"><img
-          src="css/logout.png"
-          alt=""
-        />
-        Logout
+        <span>Give Test</span>
       </a>
       <a href="/view-result-student" class="button flex-center flex-column"><img
           src="css/view-report.png"
         />
-        <span>View view-report card</span></a>
+        <span>View Report Card</span></a>
     </div>
     <div class="footer">
       <footer>
@@ -49,7 +52,8 @@
             href="https://www.linkedin.com/in/gourav-yadav-1618b4231/"
           >Gourav Yadav</a>
           <a
-            class="linked" href="https://www.linkedin.com/in/megha-rathi-b94a34226/"
+            class="linked"
+            href="https://www.linkedin.com/in/megha-rathi-b94a34226/"
           >Megha Rathi</a></p>
       </footer>
     </div>
