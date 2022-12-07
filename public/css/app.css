@@ -1,14 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300&family=Nerko+One&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif, cursive;
 }
 
 .heading {
   position: absolute;
   top: 90;
   font: 500;
-  font-family: "Kanit", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif, cursive;
 }
 
 .pt-5 {

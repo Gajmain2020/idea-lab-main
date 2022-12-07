@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "display", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif, cursive;
 }
 body {
   height: 100%;
@@ -12,19 +12,19 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(120deg, #a7cde6, #f299dd);
+  background:url(back7.jpg);
 
 }
 .container {
   max-width: 700px;
   width: 100%;
-  background-color: rgb(249, 251, 251);
+  background-color: rgb(220, 239, 239);
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(53, 52, 52, 0.15);
   border: #e597d2;
-  min-height: 60vh;
-  min-width: 45rem;
+  min-height: 80vh;
+  min-width: 65rem;
   margin: 0 auto;
   padding: 0 auto;
   margin-top: 50px;
@@ -42,7 +42,7 @@ body {
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #b7ddf7, #9b59b6);
+  background: linear-gradient(15deg, #b7ddf7, #07669c);
 }
 .content form .user-details {
   display: flex;
@@ -122,11 +122,11 @@ form .button input {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #97c1dc, #9b59b6);
+  background:linear-gradient(60deg, #2193b0, #439be2);
 }
 form .button input:hover {
   /* transform: scale(0.99); */
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(60deg, #2193b0, #439be2);
 }
 @media (max-width: 584px) {
   .container {
@@ -165,10 +165,16 @@ a {
   padding: 0;
   border-radius: 5px;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(60deg, #2193b0, #439be2);
   text-decoration: none;
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
+}
+.content.question-container.question{
+  width: 100%;
+  margin: 2rem;
+  padding-left: 5px;
+  
 }
