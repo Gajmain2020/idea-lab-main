@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Kanit", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif, cursive;
 }
 body {
   height: 100%;
@@ -10,18 +11,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 70px;
-  background: linear-gradient(15deg, #95d1f9, #3572f5);
+  padding: 20px;
+  background:url(back7.jpg);
+
 }
 .container {
   max-width: 700px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(220, 239, 239);
   padding: 25px 30px;
   border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  min-height: 50vh;
-  min-width: 50rem;
+  box-shadow: 0 5px 10px rgba(53, 52, 52, 0.15);
+  border: #e597d2;
+  min-height: 80vh;
+  min-width: 65rem;
   margin: 0 auto;
   padding: 0 auto;
   margin-top: 50px;
@@ -39,13 +42,13 @@ body {
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  background: linear-gradient(15deg, #95d1f9, #3572f5);
+  background: linear-gradient(15deg, #b7ddf7, #07669c);
 }
 .content form .user-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 15px 0;
+  margin: 5px 0 5px 0;
 }
 form .user-details .input-box {
   margin-bottom: 10px;
@@ -69,7 +72,7 @@ form .input-box span.details {
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid {
-  border-color: #87b6eb;
+  border-color: #9b59b6;
 }
 form .gender-details .gender-title {
   font-size: 20px;
@@ -107,11 +110,10 @@ form .category label .dot {
 form .button {
   height: 45px;
   margin: 45px 0;
-  width: 100%;
 }
 form .button input {
   height: 100%;
-  width: 100%;
+  width: 90%;
   border-radius: 5px;
   border: none;
   color: #fff;
@@ -120,14 +122,11 @@ form .button input {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(15deg, #95d1f9, #3572f5);
-  position: relative;
-  align-items: center;
-  justify-content: center;
+  background:linear-gradient(60deg, #2193b0, #439be2);
 }
 form .button input:hover {
   /* transform: scale(0.99); */
-  background: linear-gradient(-15deg, #95d1f9, #3572f5);
+  background: linear-gradient(60deg, #2193b0, #439be2);
 }
 @media (max-width: 584px) {
   .container {
@@ -166,20 +165,16 @@ a {
   padding: 0;
   border-radius: 5px;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(60deg, #2193b0, #439be2);
   text-decoration: none;
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
 }
-
-#semSec {
-  padding: 5px 25px;
-  margin: 2px auto;
-}
-
-#gender {
-  margin-left: 10px;
-  padding: 5px 10px;
+.content.question-container.question{
+  width: 100%;
+  margin: 2rem;
+  padding-left: 5px;
+  
 }
