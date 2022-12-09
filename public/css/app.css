@@ -167,19 +167,19 @@ img {
 }
 
 table {
-  padding-top: 10px;
-  padding-bottom: 100px;
+  Padding-top: 10px;
+  
+  padding-bottom: 100px;;
 }
 
 th {
-  font-size: larger;
-  color: rgba(13, 13, 13, 0.596);
-  border-style: double;
-  padding: 3px 30px;
-  text-align: center;
+  background-color: lightskyblue;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 td {
-  border-style: double;
+  
   padding: 2px 30px;
   text-align: center;
 }
@@ -266,3 +266,5 @@ caption {
   transition-duration: 500ms;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
+
+
