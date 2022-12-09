@@ -172,9 +172,9 @@ a {
   font-weight: 600;
   letter-spacing: 1px;
 }
-.content.question-container.question{
+.content.question-container{
   width: 100%;
   margin: 2rem;
   padding-left: 5px;
-  
+  border: #2193b0;
 }
