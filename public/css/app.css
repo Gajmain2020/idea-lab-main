@@ -3,14 +3,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'IBM Plex Sans', sans-serif, cursive;
+  font-family: "IBM Plex Sans", sans-serif, cursive;
 }
 
 .heading {
   position: absolute;
   top: 90;
   font: 500;
-  font-family: 'IBM Plex Sans', sans-serif, cursive;
+  font-family: "IBM Plex Sans", sans-serif, cursive;
 }
 
 .pt-5 {
@@ -167,24 +167,25 @@ img {
 }
 
 table {
-  Padding-top: 10px;
-  
-  padding-bottom: 100px;;
+  padding-top: 10px;
+
+  padding-bottom: 100px;
 }
 
 th {
   background-color: lightskyblue;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 td {
-  
   padding: 2px 30px;
   text-align: center;
 }
 caption {
-  font-size: 50px;
+  font-size: 2em;
   font-style: bold;
 }
 
@@ -196,17 +197,17 @@ caption {
   color: rgb(226, 226, 226);
   text-decoration: none;
   text-align: center;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
   font-size: 15px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 20px 10px;
   position: absolute;
   top: 0;
-  right: 90;
+  right: 5.9em;
   padding: 2px;
-  width: 150px;
+  width: 12.5em;
   height: 40px;
 }
 
@@ -229,13 +230,13 @@ caption {
   font-size: 15px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 20px 10px;
+  margin: 1.25em 0.6253em;
   position: absolute;
   top: 0;
-  right: 250;
+  right: 18.75em;
   padding: 2px;
-  width: 150px;
-  height: 40px;
+  width: 12.5em;
+  height: 2.6875em;
 }
 
 .logout-button:hover {
@@ -251,8 +252,8 @@ caption {
   top: 80%;
   text-decoration: none;
   align-items: center;
-  border: 0.4rem solid #2893f1;
-  border-radius: 15px;
+  border: 0.25em solid #2893f1;
+  border-radius: 0.7em;
   width: 150px;
   height: 40px;
   color: rgb(226, 226, 226);
@@ -267,4 +268,10 @@ caption {
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
-
+.btn-img {
+  width: 1.7em;
+  height: 1.7em;
+  position: absolute;
+  top: -1.1em;
+  left: 0;
+}

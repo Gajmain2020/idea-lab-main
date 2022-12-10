@@ -1,7 +1,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <title>Add Questions For Test</title>
+    <title>Attempt Test</title>
     <link rel="stylesheet" href="css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,18 +10,20 @@
   </head>
   <body>
     <div class="container">
-      <div class="title">Test</div>
+      <div class="title">Attempt Test</div>
       <div class="content">
         <form action="/submit-test" method="post">
           {{#each questions}}
             <div class="question-container">
               <div class="question">
-                <b>Q{{@index}}: </b>{{question}}
+                <b>Q{{@index}}: </b><span class="question-text">{{question}}</span>
               </div>
-              {{#each options}}
-                <input name="{{../_id}}" id={{@index}} value={{@index}} type="radio" />
-                <label>{{this}}</label>
-              {{/each}}
+              <div class="option-container">
+                {{#each options}}
+                  <span class="option-text"><label><input name="{{../_id}}" id={{@index}} value={{@index}} type="radio" />
+                  {{this}}</label></span>
+                {{/each}}
+              </div>
             </div>
           {{/each}}
           <div class="button">

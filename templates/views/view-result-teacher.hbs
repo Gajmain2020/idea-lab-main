@@ -5,18 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Report Of All Student</title>
     <link rel="stylesheet" href="css/app.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <center>
-      <h2>Reports Of All Students</h2>
-    </center>
+    <div class="home">
+      <a href="/" class="homepage-button">
+        HOME PAGE<img
+          id="homepage-icon"
+          src="home.png"
+          class="btn-img"
+          alt=""
+        /></a></a>
+    </div>
+    <div class="logout">
+      <a href="/logout-teacher" class="logout-button">
+        LOGOUT<img
+          id="logout-icon"
+          src="logout.png"
+          class="btn-img"
+          alt=""
+        /></a>
+      </a>
+    </div>
     <div class="container">
 
       <table class="flex-column flex-center">
-        <caption>REPORT</caption>
+        <caption>Report Of All Students</caption>
         <tr>
           <th>Student Name</th>
           <th>Roll Number</th>
@@ -38,7 +57,7 @@
 
       </table>
 
-      <a href="/logged-in-teacher" id="back-button">Go Back</a>
+      <a href="/logged-in-teacher" id="back-button"><span>Go Back</span></a>
     </div>
 
   </body>

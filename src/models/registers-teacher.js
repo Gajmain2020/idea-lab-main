@@ -26,7 +26,6 @@ const registerSchemaTeacher = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    // unique: true,
   },
   cpassword: {
     type: String,

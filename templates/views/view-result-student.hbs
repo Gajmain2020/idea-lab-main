@@ -6,19 +6,37 @@
     <title>Report</title>
     <link rel="stylesheet" href="css/app.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+      rel="stylesheet"
+    />
 
   </head>
   <body>
-    <center>
-      <h2>REPORTS OF {{user.fullname}}</h2>
-    </center>
-    <div class="container">
+    <div class="home">
+      <a href="/" class="homepage-button">
+        HOME PAGE<img
+          id="homepage-icon"
+          src="home.png"
+          class="btn-img"
+          alt=""
+        /></a>
+    </div>
+    <div class="logout">
+      <a href="/logout-student" class="logout-button">
+        LOGOUT<img
+          id="logout-icon"
+          src="logout.png"
+          class="btn-img"
+          alt=""
+        /></a>
 
+    </div>
+    <div class="container">
       <table class="flex-column flex-center">
-        <caption>REPORT</caption>
+        <caption>Report Of {{user.fullname}} </caption>
         <tr>
           <th>Student Name</th>
           <th>Roll Number</th>
@@ -38,7 +56,7 @@
 
       </table>
 
-      <a href="/logged-in-student" class="bk-button">Go Back</a>
+      <a href="/logged-in-student" id="back-button"><span>Go Back</span></a>
     </div>
 
   </body>
