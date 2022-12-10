@@ -8,7 +8,6 @@ const QuestionSchema = new mongoose.Schema({
   options: {
     type: Array,
     required: true,
-    // unique: true,
   },
   correct_option: {
     type: Number,
