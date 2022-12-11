@@ -11,25 +11,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 1.25em;
   background: url(back7.jpg);
 }
 .container {
-  max-width: 700px;
+  max-width: 43.75em;
   width: 100%;
   background-color: rgb(220, 239, 239);
-  padding: 25px 30px;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(53, 52, 52, 0.15);
+  padding: 1.5625em 1.875em;
+  border-radius: 0.3125em;
+  box-shadow: 0 0.3125em 0.625em rgba(53, 52, 52, 0.15);
   border: #e597d2;
   min-height: 80vh;
-  min-width: 65rem;
+  min-width: 65em;
   margin: 0 auto;
   padding: 0 auto;
-  margin-top: 50px;
+  margin-top: 3.125em;
 }
 .container .title {
-  font-size: 25px;
+  font-size: 1.5625em;
   font-weight: 500;
   position: relative;
 }
@@ -38,35 +38,35 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 3px;
-  width: 30px;
-  border-radius: 5px;
+  height: 0.1875em;
+  width: 1.875em;
+  border-radius: 0.3125em;
   background: linear-gradient(15deg, #b7ddf7, #07669c);
 }
 .content form .user-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 5px 0 5px 0;
+  margin: 0.3125em 0 0.3125em 0;
 }
 form .user-details .input-box {
-  margin-bottom: 10px;
-  width: calc(100% / 2 - 20px);
+  margin-bottom: 0.625em;
+  width: calc(100% / 2 - 1.25em);
 }
 form .input-box span.details {
   display: block;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125em;
 }
 .user-details .input-box input {
-  height: 45px;
+  height: 2.8125em;
   width: 100%;
   outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
+  font-size: 1em;
+  border-radius: 0.3125em;
+  padding-left: 0.9375em;
+  border: 0.0625em solid #ccc;
+  border-bottom-width: 0.125em;
   transition: all 0.3s ease;
 }
 .user-details .input-box input:focus,
@@ -74,13 +74,13 @@ form .input-box span.details {
   border-color: #9b59b6;
 }
 form .gender-details .gender-title {
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 500;
 }
 form .category {
   display: flex;
   width: 80%;
-  margin: 14px 0;
+  margin: 0.875em 0;
   justify-content: space-between;
 }
 form .category label {
@@ -89,12 +89,12 @@ form .category label {
   cursor: pointer;
 }
 form .category label .dot {
-  height: 18px;
-  width: 18px;
+  height: 1.125em;
+  width: 1.125em;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 0.625em;
   background: #d9d9d9;
-  border: 5px solid transparent;
+  border: 0.3125em solid transparent;
   transition: all 0.3s ease;
 }
 #dot-1:checked ~ .category label .one,
@@ -107,18 +107,18 @@ form .category label .dot {
   display: none;
 } */
 form .button {
-  height: 45px;
-  margin: 45px 0;
+  height: 2.8125em;
+  margin: 2.8125em 0;
 }
 form .button input {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0.3125em;
   border: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 1.125em;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625em;
   cursor: pointer;
   transition: all 0.3s ease;
   background: linear-gradient(60deg, #2193b0, #439be2);
@@ -135,23 +135,23 @@ a {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  height: 2.5rem;
+  height: 2.5em;
   width: 100%;
   margin: 0;
   padding: 0;
-  border-radius: 5px;
+  border-radius: 0.3125em;
   transition: all 0.3s ease;
   background: linear-gradient(60deg, #2193b0, #439be2);
   text-decoration: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.125em;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625em;
 }
 .content.question-container {
   width: 100%;
-  margin: 2rem;
-  padding-left: 5px;
+  margin: 2em;
+  padding-left: 0.3125em;
   border: #2193b0;
 }
 

@@ -22,34 +22,34 @@
 body {
   height: 100%;
   width: 100%;
-  max-height: 1000px;
+  max-height: 62.5em;
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 10.625em;
   background-image: url(back7.jpg);
   background-size: cover;
 }
 
 .container {
-  /* max-width: 700px; */
+  /* max-width: 43.75em; */
   width: 100%;
   /* background-color: #fff; */
-  padding: 25px 30px;
+  padding:  1.5625em 1.875em;
   background-color: rgb(183, 205, 205);
   border-radius: 3.5%;
-  box-shadow: 0 10px 20px rgba(226, 195, 213, 0.15);
+  box-shadow: 0  0.625em 1.25em rgba(226, 195, 213, 0.15);
   min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   text-align: center;
-  max-width: 70rem;
+  max-width: 70em;
 
   margin: auto;
-  padding: 2rem;
-  margin-top: 60px;
+  padding: 2em;
+  margin-top: 3.75em;
 }
 
 .flex-column {
@@ -64,40 +64,40 @@ body {
 }
 
 img {
-  width: 5rem;
-  height: 5rem;
+  width: 5em;
+  height: 5em;
   padding: 0;
-  margin: 1rem;
+  margin: 1em;
 }
 
 .img-login {
   display: block;
   padding: 0;
   margin: 0 auto;
-  height: 5rem;
+  height: 5em;
 }
 
 .button {
   /* display: inline-block; */
-  border-radius: 20px;
+  border-radius: 1.25em;
   background: linear-gradient(60deg, #2193b0, #439be2);
   color: rgb(9, 9, 9);
   text-decoration: none;
   text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 350px;
-  height: 200px;
+  font-size: 1.75em;
+  padding: 1.25em;
+  width: 21.875em;
+  height: 12.5em;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 3rem 5rem;
+  margin: 3em 5em;
 }
 
 .button:hover {
   background-color: #70b7f5;
   color: black;
   transition-duration: 500ms;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.9375em 1.5625em rgba(0, 0, 0, 0.15);
 }
 
 .button span {
@@ -112,12 +112,12 @@ img {
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  right: -1.25em;
   transition: 0.5s;
 }
 
 .button:hover span {
-  padding-right: 25px;
+  padding-right: 1.5625em;
 }
 
 .button:hover span:after {
@@ -146,7 +146,7 @@ img {
 
 .linked:hover {
   color: rgb(3, 3, 61);
-  font-size: 20px;
+  font-size: 1.25em;
   font-style: bold;
   left: 70%;
 }
@@ -156,7 +156,7 @@ img {
   margin: 0;
   padding: 0;
   max-width: 100vw;
-  width: 70rem;
+  width: 70em;
 }
 
 .small-xl {
@@ -167,21 +167,21 @@ img {
 }
 
 table {
-  padding-top: 10px;
+  padding-top: 0.625em;
 
-  padding-bottom: 100px;
+  padding-bottom: 6.25em;
 }
 
 th {
   background-color: lightskyblue;
-  font-size: 14px;
+  font-size: 0.875em;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   padding-left: 2em;
   padding-right: 2em;
 }
 td {
-  padding: 2px 30px;
+  padding: 0.125em 1.875em;
   text-align: center;
 }
 caption {
@@ -191,50 +191,50 @@ caption {
 
 .homepage-button {
   /* display: inline-block; */
-  border-radius: 15px;
+  border-radius: 0.9375em;
   background-color: #08201f;
-  border: 0.4rem solid #2893f1;
+  border: 0.4em solid #2893f1;
   color: rgb(226, 226, 226);
   text-decoration: none;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 150.9375em;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 20px 10px;
+  margin: 1.25em 0.625em;
   position: absolute;
   top: 0;
   right: 5.9em;
-  padding: 2px;
+  padding: 0.125em;
   width: 12.5em;
-  height: 40px;
+  height: 2.5em;
 }
 
 .homepage-button:hover {
   background-color: #279aff;
   color: black;
   transition-duration: 500ms;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.9375em 1.5625em rgba(0, 0, 0, 0.15);
 }
 .logout-button {
   /* display: inline-block; */
-  border-radius: 15px;
+  border-radius: 0.9375em;
   background-color: #08201f;
-  border: 0.4rem solid #2893f1;
+  border: 0.4em solid #2893f1;
   color: rgb(226, 226, 226);
   text-decoration: none;
   text-align: center;
   /* justify-content: center; */
   /* align-items: center; */
-  font-size: 15px;
+  font-size: 0.9375em;
   transition: all 0.5s;
   cursor: pointer;
   margin: 1.25em 0.6253em;
   position: absolute;
   top: 0;
   right: 18.75em;
-  padding: 2px;
+  padding: 0.125em;
   width: 12.5em;
   height: 2.6875em;
 }
@@ -243,7 +243,7 @@ caption {
   background-color: #279aff;
   color: black;
   transition-duration: 500ms;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.9375em 1.5625em rgba(0, 0, 0, 0.15);
 }
 
 #back-button {
@@ -254,18 +254,18 @@ caption {
   align-items: center;
   border: 0.25em solid #2893f1;
   border-radius: 0.7em;
-  width: 150px;
-  height: 40px;
+  width: 9.375em;
+  height: 2.5em;
   color: rgb(226, 226, 226);
   background-color: #08201f;
-  padding: 3px 20px 5px 20px;
+  padding: 0.1875em 1.25em 0.3125em 1.25em;
 }
 
 #back-button:hover {
   background-color: #279aff;
   color: black;
   transition-duration: 500ms;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.9375em 1.5625em rgba(0, 0, 0, 0.15);
 }
 
 .btn-img {
